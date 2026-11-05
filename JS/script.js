@@ -1,5 +1,42 @@
 
 const preloader = document.getElementById("preloader");
+const backgroundMusic = document.getElementById("backgroundMusic");
+const musicToggle = document.getElementById("musicToggle");
+const musicToggleIcon = musicToggle.querySelector("i");
+
+function setMusicPlaying(isPlaying) {
+    musicToggleIcon.classList.toggle("fa-pause", isPlaying);
+    musicToggleIcon.classList.toggle("fa-play", !isPlaying);
+    musicToggle.setAttribute("aria-label", isPlaying ? "Pause background music" : "Play background music");
+    musicToggle.setAttribute("title", isPlaying ? "Pause background music" : "Play background music");
+    musicToggle.setAttribute("aria-pressed", String(isPlaying));
+}
+
+backgroundMusic.volume = 0.45;
+
+backgroundMusic.addEventListener("play", function () {
+    setMusicPlaying(true);
+});
+
+backgroundMusic.addEventListener("pause", function () {
+    setMusicPlaying(false);
+});
+
+musicToggle.addEventListener("click", async function () {
+    if (backgroundMusic.paused) {
+        try {
+            await backgroundMusic.play();
+        } catch {
+            setMusicPlaying(false);
+        }
+    } else {
+        backgroundMusic.pause();
+    }
+});
+
+backgroundMusic.play().catch(function () {
+    setMusicPlaying(false);
+});
 
 const invitedText = document.querySelector(".invited-text");
 const guestName = new URLSearchParams(window.location.search).get("to");
