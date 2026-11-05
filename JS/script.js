@@ -269,7 +269,9 @@ const lightboxClose =
 
 let currentIndex = 0;
 
-let isPlaying = true;
+let isPlaying = false;
+
+let galleryStarted = false;
 
 let slideDuration = 5000;
 
@@ -501,6 +503,10 @@ galleryPlayPause.addEventListener(
     "click",
     function () {
 
+        if (!galleryStarted) {
+            return;
+        }
+
         isPlaying = !isPlaying;
 
         if (isPlaying) {
@@ -716,7 +722,27 @@ function handleSwipe() {
    START GALLERY
 ========================= */
 
-showSlide(0);
+const gallerySection = document.getElementById("gallery");
+
+const galleryStartObserver = new IntersectionObserver(
+    entries => {
+        if (entries.some(entry => entry.isIntersecting)) {
+            galleryStarted = true;
+            isPlaying = true;
+            galleryPlayPause.disabled = false;
+            galleryPlayPause.innerHTML = `
+                <i class="fa-solid fa-pause"></i>
+                <span>Pause</span>
+            `;
+            playingText.textContent = "PLAYING MEMORIES";
+            showSlide(0);
+            galleryStartObserver.disconnect();
+        }
+    },
+    { threshold: 0.2 }
+);
+
+galleryStartObserver.observe(gallerySection);
 
 function startSectionReveal() {
     const sections = document.querySelectorAll("section");
