@@ -9,13 +9,9 @@ if (guestName && guestName.trim()) {
 }
 
 window.addEventListener("load", function () {
-    setTimeout(function () {
-        preloader.classList.add("hide");
-        setTimeout(function () {
-            document.body.classList.add("page-ready");
-            startSectionReveal();
-        }, 500);
-    }, 2000);
+    preloader.classList.add("hide");
+    document.body.classList.add("page-ready");
+    startSectionReveal();
 });
 
 
