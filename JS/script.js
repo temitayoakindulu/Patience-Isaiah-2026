@@ -98,6 +98,39 @@ menuLinks.forEach(function (link) {
 
 });
 
+const copyGiftAccountButton = document.getElementById("copyGiftAccount");
+const giftAccountNumber = document.getElementById("giftAccountNumber");
+const giftCopyStatus = document.getElementById("giftCopyStatus");
+
+copyGiftAccountButton.addEventListener("click", async function () {
+    const accountNumber = giftAccountNumber.textContent.trim();
+
+    try {
+        if (navigator.clipboard && window.isSecureContext) {
+            await navigator.clipboard.writeText(accountNumber);
+        } else {
+            const temporaryInput = document.createElement("textarea");
+            temporaryInput.value = accountNumber;
+            temporaryInput.setAttribute("readonly", "");
+            temporaryInput.style.position = "fixed";
+            temporaryInput.style.opacity = "0";
+            document.body.appendChild(temporaryInput);
+            temporaryInput.select();
+            const copied = document.execCommand("copy");
+            temporaryInput.remove();
+
+            if (!copied) {
+                throw new Error("Copy command was unsuccessful");
+            }
+        }
+
+        giftCopyStatus.textContent = "Account number copied.";
+    } catch (error) {
+        giftCopyStatus.textContent = "Unable to copy. Please select and copy the account number.";
+        console.error("Could not copy gift account number:", error);
+    }
+});
+
 
 // Wedding date
 const weddingDate = new Date("2026-11-28T11:00:00+01:00").getTime();

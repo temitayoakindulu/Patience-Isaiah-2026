@@ -1529,6 +1529,128 @@ section{
 }
 
 /* =========================
+   GIFTS
+========================= */
+
+.gifts {
+    background-color: #701833;
+    color: #fffdf8;
+    padding: 80px 20px;
+}
+
+.gifts-container {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.gifts-label {
+    color: #d4af6a;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    margin: 0 0 25px;
+}
+
+.gifts h2 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 52px;
+    line-height: 0.95;
+    font-weight: normal;
+    letter-spacing: -2px;
+    margin: 0 0 25px;
+}
+
+.gifts-intro {
+    color: rgba(255, 253, 248, 0.78);
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.8;
+    margin: 0 0 35px;
+}
+
+.gift-remark-note {
+    border-left: 2px solid #d4af6a;
+    color: #f0d9a8;
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+    line-height: 1.7;
+    margin: -15px 0 30px;
+    padding-left: 14px;
+}
+
+.gift-account {
+    border: 1px solid rgba(255, 253, 248, 0.25);
+    padding: 28px;
+}
+
+.gift-account-label {
+    color: #d4af6a;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin: 0 0 22px;
+}
+
+.gift-account dl {
+    margin: 0;
+}
+
+.gift-account-detail {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 15px 0;
+    border-top: 1px solid rgba(255, 253, 248, 0.16);
+    font-family: Arial, sans-serif;
+}
+
+.gift-account-detail dt {
+    color: rgba(255, 253, 248, 0.7);
+}
+
+.gift-account-detail dd {
+    margin: 0;
+    text-align: right;
+}
+
+.gift-account-number {
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.gift-copy-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+    padding: 14px 20px;
+    border: 1px solid #d4af6a;
+    border-radius: 30px;
+    background: transparent;
+    color: #fffdf8;
+    cursor: pointer;
+    font: inherit;
+    transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+.gift-copy-button:hover,
+.gift-copy-button:focus-visible {
+    background-color: #d4af6a;
+    color: #451024;
+}
+
+.gift-copy-status {
+    min-height: 1.2em;
+    margin: 14px 0 0;
+    color: #f0d9a8;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+}
+
+/* =========================
    GALLERY
 ========================= */
 
@@ -2129,6 +2251,10 @@ section{
         flex-wrap: wrap;
     }
 
+    .gift-account {
+        padding: 24px 20px;
+    }
+
     .wedding-nav a {
         font-size: 13px;
     }
@@ -2170,6 +2296,11 @@ section{
     .wedding-nav {
         width: 100%;
         gap: 18px;
+    }
+
+    .gift-account-detail {
+        gap: 12px;
+        font-size: 14px;
     }
 
     .wedding-nav a {
