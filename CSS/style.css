@@ -1106,6 +1106,61 @@ section{
     font-weight: 600;
 }
 
+.color-palette {
+    margin-top: 42px;
+}
+
+.color-palette h3 {
+    margin: 0 0 22px;
+    color: #76132f;
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: clamp(30px, 5vw, 40px);
+    font-weight: 500;
+}
+
+.color-palette-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.color-swatch {
+    min-width: 0;
+    margin: 0;
+}
+
+.color-swatch figcaption {
+    margin-bottom: 10px;
+    color: #5e5555;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.color-swatch-block {
+    width: 100%;
+    height: clamp(170px, 24vw, 240px);
+    border: 1px solid rgba(63, 57, 58, 0.12);
+    border-radius: 8px;
+    box-shadow: 0 10px 24px rgba(63, 57, 58, 0.12);
+}
+
+.swatch-burgundy {
+    background-color: #800020;
+}
+
+.swatch-navy {
+    background-color: #000080;
+}
+
+.swatch-sky {
+    background-color: #87ceeb;
+}
+
+.swatch-gold {
+    background-color: #d4af37;
+}
+
 
 /* =========================
    BUTTONS
@@ -2191,6 +2246,15 @@ section{
     .details-events {
         grid-template-columns: 1fr;
         gap: 16px;
+    }
+
+    .color-palette-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px 14px;
+    }
+
+    .color-swatch-block {
+        height: clamp(160px, 48vw, 220px);
     }
 
     .event-card {
